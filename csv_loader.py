@@ -30,8 +30,7 @@ def parse_files(paths: list[str], airports: set[str]) -> tuple[list[dict], list[
 
     for path in paths:
         file_name = os.path.basename(path)
-        # Default newline handling turns \r\n (and \n) into \n, so both
-        # Windows and Unix line endings work and line numbers stay physical.
+
         with open(path, encoding="utf-8") as f:
             for line_number, raw_line in enumerate(f, start=1):
                 if line_number == 1:  # header: skipped without validation

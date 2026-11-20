@@ -24,7 +24,7 @@ class RuntimeProblem(Exception):
     """An expected runtime problem; main() prints 'Error: ...' and returns 1."""
 
 
-# ------------------------------------------------------------ arguments
+#                  arguments
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -68,7 +68,7 @@ def _parse_arguments(argv):
     return args
 
 
-# ------------------------------------------------------------ JSON input
+#              JSON input
 
 def _read_json(path: str, what: str):
     try:
@@ -99,7 +99,7 @@ def _load_queries(path: str):
     return data
 
 
-# ------------------------------------------------------------ CSV input
+#                                 CSV input
 
 def _collect_csv_paths(args) -> list[str]:
     if args.input_file is not None:
@@ -152,7 +152,7 @@ def _parse_csv_input(args, logger: logging.Logger) -> tuple[list[dict], list[str
     return records, errors
 
 
-# ------------------------------------------------------------ outputs
+#                    outputs
 
 def _write_json(path: str, data, what: str) -> None:
     try:
@@ -201,11 +201,10 @@ def _build_database(args) -> list[dict]:
         handler.close()
 
 
-# ------------------------------------------------------------ main
+#                              main
 
 def _run(args) -> int:
     # Read the query file first, so that a bad one stops the run before
-    # anything is written.
     queries = _load_queries(args.queries) if args.queries is not None else None
 
     if args.json_db is not None:
