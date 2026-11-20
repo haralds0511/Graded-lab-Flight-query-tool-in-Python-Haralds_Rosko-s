@@ -17,7 +17,7 @@ from validator import load_airports
 # TODO: fill in your details: plain ASCII, no spaces or underscores.
 STUDENT_ID = "251RDC034"
 FIRST_NAME = "Haralds"
-LAST_NAME = "Roskošs"
+LAST_NAME = "Roskoss"
 
 
 class RuntimeProblem(Exception):
